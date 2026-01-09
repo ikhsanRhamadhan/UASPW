@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bank Sampah Hijau</title>
+  <style>
+:root{--primary:#2e7d32;--secondary:#66bb6a;--light:#f1f8e9;--dark:#1b5e20}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Segoe UI,Tahoma,sans-serif}
+body{background:var(--light);scroll-behavior:smooth}
+
+/* NAVBAR */
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:16px 24px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;position:sticky;top:0;z-index:100;animation:slideDown .8s ease}
+.logo{font-size:20px;font-weight:bold;animation:pulse 2s infinite}
+.navbar nav{display:flex;gap:20px}
+.navbar nav a{color:#fff;text-decoration:none;font-weight:500;position:relative}
+.navbar nav a::after{content:"";position:absolute;width:0;height:2px;bottom:-5px;left:0;background:#fff;transition:.3s}
+.navbar nav a:hover::after{width:100%}
+.menu-toggle{display:none;font-size:26px;cursor:pointer}
+
+/* HERO */
+.hero{padding:90px 20px;text-align:center;background:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url('https://images.unsplash.com/photo-1528323273322-d81458248d40') center/cover;color:#fff}
+.hero h2{font-size:36px;margin-bottom:10px;animation:fadeUp 1s ease}
+.hero p{font-size:18px;animation:fadeUp 1.3s ease}
+.hero button{margin-top:20px;padding:12px 24px;border:none;border-radius:8px;background:var(--secondary);color:#fff;font-size:16px;cursor:pointer;transition:.3s}
+.hero button:hover{transform:scale(1.1);background:var(--dark)}
+
+section{padding:70px 20px;max-width:1100px;margin:auto;opacity:0;transform:translateY(40px);transition:1s}
+section.show{opacity:1;transform:translateY(0)}
+section h3{text-align:center;margin-bottom:20px;color:var(--dark)}
+
+/* CARDS */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 6px 16px rgba(0,0,0,.15);transition:.4s}
+.card:hover{transform:translateY(-10px) scale(1.03)}
+
+/* FORM */
+form input,form textarea{width:100%;padding:10px;margin-bottom:10px;border-radius:6px;border:1px solid #ccc}
+form button{width:100%;padding:10px;background:var(--primary);color:#fff;border:none;border-radius:6px;cursor:pointer;transition:.3s}
+form button:hover{background:var(--dark);transform:scale(1.05)}
+
+footer{text-align:center;padding:20px;background:var(--dark);color:#fff;animation:fadeUp 1s}
+
+/* ANIMATION */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideDown{from{transform:translateY(-100%)}to{transform:translateY(0)}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.navbar nav{position:absolute;top:64px;right:0;background:var(--primary);flex-direction:column;width:200px;display:none;padding:20px;animation:fadeUp .5s}
+.navbar nav.active{display:flex}
+.menu-toggle{display:block}
+.hero h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+
+  <header class="navbar">
+  <div class="logo">Bank Sampah</div>
+  <nav id="navMenu">
+    <a href="#beranda">Beranda</a>
+    <a href="#tentang">Tentang</a>
+    <a href="#publikasi">Publikasi</a>
+    <a href="#regulasi">Regulasi</a>
+    <a href="#lokasi">Lokasi</a>
+    <a href="#helpdesk">Help Desk</a>
+  </nav>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+</header>
+
+  <div class="hero">
+    <h2>Ubah Sampah Menjadi Tabungan</h2>
+    <p>Kelola sampah dengan bijak dan dapatkan manfaat ekonominya</p>
+    <button onclick="alert('Pendaftaran berhasil!')">Daftar Sekarang</button>
+  </div>
+
+  <section id="layanan">
+  <h3>Layanan Kami</h3>
+  <p style="text-align:center;max-width:800px;margin:0 auto 30px">Berbagai layanan Bank Sampah untuk mendukung pengelolaan sampah yang ramah lingkungan dan bernilai ekonomi.</p>
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716" style="width:100%;height:180px;object-fit:cover;border-radius:12px" alt="Setor Sampah">
+      <h4 style="margin-top:12px">Setor Sampah</h4>
+      <p>Masyarakat dapat menyetor sampah anorganik yang sudah dipilah untuk ditabung.</p>
+      <button>Detail Layanan</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105" style="width:100%;height:180px;object-fit:cover;border-radius:12px" alt="Penarikan Saldo">
+      <h4 style="margin-top:12px">Penarikan Saldo</h4>
+      <p>Saldo tabungan sampah dapat ditarik dalam bentuk uang tunai atau kebutuhan pokok.</p>
+      <button>Ajukan Penarikan</button>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d" style="width:100%;height:180px;object-fit:cover;border-radius:12px" alt="Edukasi">
+      <h4 style="margin-top:12px">Edukasi & Pelatihan</h4>
+      <p>Pelatihan pengelolaan sampah dan sosialisasi lingkungan kepada masyarakat.</p>
+      <button>Ikuti Program</button>
+    </div>
+  </div>
+</section>
+
+<section id="tentang">
+  <h3>Tentang Bank Sampah</h3>
+  <p style="text-align:center;max-width:800px;margin:auto">Bank Sampah merupakan lembaga pengelolaan sampah berbasis masyarakat yang bertujuan mengurangi volume sampah, meningkatkan kesadaran lingkungan, serta memberikan nilai ekonomi melalui sistem tabungan sampah. Masyarakat dapat menabung sampah anorganik yang kemudian dikonversi menjadi saldo.</p>
+</section>
+
+<section id="publikasi">
+  <h3>Publikasi</h3>
+  <p style="text-align:center;max-width:800px;margin:0 auto 30px">Publikasi resmi, laporan, dan dokumentasi kegiatan Bank Sampah.</p>
+
+  <div class="cards">
+    <div class="card">
+      <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="Unduh Laporan" style="width:120px;height:120px;margin:0 auto 15px;display:block">
+      <h4>Laporan Tahunan</h4>
+      <p>Laporan kinerja dan pengelolaan sampah Bank Sampah selama satu tahun.</p>
+      <button>⬇ Unduh Laporan</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1528323273322-d81458248d40" alt="Berita" style="width:100%;height:180px;object-fit:cover;border-radius:12px">
+      <h4 style="margin-top:12px">Berita & Kegiatan</h4>
+      <p>Informasi terbaru kegiatan dan program lingkungan Bank Sampah.</p>
+      <button>📖 Lihat Berita</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Edukasi" style="width:100%;height:180px;object-fit:cover;border-radius:12px">
+      <h4 style="margin-top:12px">Materi Edukasi</h4>
+      <p>Materi pembelajaran pemilahan dan daur ulang sampah.</p>
+      <button>🎓 Pelajari</button>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Dokumentasi" style="width:100%;height:180px;object-fit:cover;border-radius:12px">
+      <h4 style="margin-top:12px">Galeri Dokumentasi</h4>
+      <p>Dokumentasi foto dan video kegiatan Bank Sampah.</p>
+      <button>🖼 Lihat Galeri</button>
+    </div>
+  </div>
+</section>
+
+<section id="regulasi">
+  <h3>Regulasi Pengelolaan Sampah</h3>
+  <div class="cards">
+    <div class="card">
+      <h4>UU No. 18 Tahun 2008</h4>
+      <p>Mengatur pengelolaan sampah secara terpadu dan berkelanjutan, termasuk pengurangan dan penanganan sampah.</p>
+    </div>
+    <div class="card">
+      <h4>Permen LHK</h4>
+      <p>Peraturan Menteri Lingkungan Hidup dan Kehutanan tentang penyelenggaraan Bank Sampah dan peran masyarakat.</p>
+    </div>
+    <div class="card">
+      <h4>Peraturan Daerah</h4>
+      <p>Mengatur kewajiban pemerintah daerah dan masyarakat dalam pengelolaan sampah berbasis lokal.</p>
+    </div>
+    <div class="card">
+      <h4>SOP Bank Sampah</h4>
+      <p>Standar operasional prosedur pengelolaan, penimbangan, pencatatan, dan penjualan sampah.</p>
+    </div>
+  </div>
+</section>
+
+<section id="lokasi">
+  <h3>Lokasi Kami</h3>
+  <p style="text-align:center">Alamat: Jl. Lingkungan Hijau No.10</p>
+  <p style="text-align:center">Jam Operasional: Senin - Jumat (08.00 - 16.00)</p>
+  <iframe style="width:100%;height:300px;border-radius:12px;border:0" src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+</section>
+
+<section id="helpdesk">
+  <h3>Help Desk</h3>
+  <p style="text-align:center">Silakan hubungi kami jika memiliki pertanyaan, saran, atau pengaduan.</p>
+  <form action="simpan_pesan.php" method="POST" style="max-width:400px;margin:auto;background:#fff;padding:20px;border-radius:12px;box-shadow:0 4px 10px rgba(0,0,0,.1)">
+    <input type="text" name="nama" placeholder="Nama Lengkap" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <textarea name="pesan" placeholder="Pesan" rows="4" required></textarea>
+    <button type="submit">Kirim Pesan</button>
+  </form>
+</section>
+
+<footer id="kontak">
+    <p>&copy; 2026 Bank Sampah Hijau | Peduli Lingkungan, Peduli Masa Depan</p>
+  </footer>
+
+  <script>
+let saldo=0;
+function tambahSaldo(){saldo+=5000;document.getElementById('saldoValue').innerText='Rp '+saldo.toLocaleString('id-ID')}
+function toggleMenu(){document.getElementById('navMenu').classList.toggle('active')}
+
+// SCROLL ANIMATION
+const sections=document.querySelectorAll('section');
+window.addEventListener('scroll',()=>{
+  sections.forEach(sec=>{
+    const top=window.scrollY;
+    const offset=sec.offsetTop-400;
+    if(top>=offset){sec.classList.add('show')}
+  })
+});
+</script>
+
+</body>
+</html>
